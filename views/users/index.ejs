@@ -1,0 +1,21 @@
+<h2>Users Table</h2>
+    <table class="users-table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(function(user) { %>
+                <tr>
+                    <td>
+                        <a href="/users/<%= user.id %>">
+                            <%= user.username %>
+                        </a>
+                    </td>
+                    <td><%= user.email %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
