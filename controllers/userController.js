@@ -56,6 +56,50 @@ module.exports = {
         let redirectPath = res.locals.redirect;
         if (redirectPath) res.redirect(redirectPath);
         else next();
+    },
+
+    edit: (req, res, next) => {
+        let userId = req.params.id;
+        User.findById(userId)
+            .then(user => {
+                res.render('users/edit', { user: user });
+            })
+            .catch(err => {
+                console.log(`ERROR fetching user by ID: ${err}`);
+                res.render('error', { error: err });
+            });
+    },
+
+    update: (req, res, next) => {
+        let userId = req.params.id;
+        let updatedUser = {
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password
+        };
+        User.findByIdAndUpdate(userId, { $set: updatedUser })
+            .then(user => {
+                res.locals.redirect = `/users/${userId}`;
+                res.locals.user = user;
+                next();
+            })
+            .catch(err => {
+                console.log(`ERROR updating user by ID: ${err}`);
+                res.render('error', { error: err });
+            });
+    },
+
+    delete: (req, res, next) => {
+        let userId = req.params.id;
+        User.findByIdAndRemove(userId)
+            .then(() => {
+                res.locals.redirect = '/users';
+                next();
+            })
+            .catch(err => {
+                console.log(`ERROR deleting user by ID: ${err}`);
+                res.render('error', { error: err });
+            });
     }
 
 };

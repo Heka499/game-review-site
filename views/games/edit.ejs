@@ -1,0 +1,13 @@
+<div class="new-game-form">
+    <form method="post" action="/games/<%= game.id %>?_method=PUT">
+        <h2>Edit Game</h2>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="<%= game.title %>" required>
+        <label for="publisher">Publisher</label>
+        <input type="text" name="publisher" id="publisher" value="<%= game.publisher %>" required>
+        <label for="genre">Genre</label>
+        <input type="text" name="genre" id="genre" value="<%= game.genre %>" required>
+        <label for="releaseDate">Release Date</label>
+        <input type="date" name="releaseDate" id="releaseDate" value="<%= game.releaseDate %>" required>
+        <button type="submit">Update Game</button>
+</div>

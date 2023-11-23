@@ -1,0 +1,11 @@
+<div class="signup-form">
+    <form method="POST" action="/users/<%= user.id %>?_method=PUT">
+        <h2>Edit account</h2>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" value="<%= user.username %>" required>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value="<%= user.email %>" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+        <button type="submit">Update</button>
+</div>

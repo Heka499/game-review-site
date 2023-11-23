@@ -1,0 +1,42 @@
+<h2>Games Table</h2>
+    <table class="games-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Publisher</th>
+                <th>Genre</th>
+                <th>Release Date</th>
+                <th>Rating</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% games.forEach(function(game) { %>
+                <tr>
+                    <td>
+                        <a href="/games/<%= game.id %>">
+                            <%= game.title %>
+                        </a>
+                    </td>
+                    <td><%= game.publisher %></td>
+                    <td><%= game.genre %></td>
+                    <td><%= game.releaseDate %></td>
+                    <td>Rating placeholder</td>
+                    <td>
+                        <a href="/games/<%= game.id %>/edit">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/games/<%= game.id %>?_method=DELETE"
+                            onclick="return confirm('Are you sure you want to delete this game?');">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <div>
+        <a href="/games/new">Create New Game</a>
+    </div>

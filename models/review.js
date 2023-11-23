@@ -23,6 +23,8 @@ const mongoose = require('mongoose'),
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Game'
         }
+    }, {
+        timestamps: true
     });
 
 module.exports = mongoose.model('Review', reviewSchema);

@@ -19,6 +19,8 @@ const mongoose = require('mongoose'),
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Review'
         }]
+    }, {
+        timestamps: true
     });
 
 userSchema.methods.getInfo = function () {

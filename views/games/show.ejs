@@ -1,0 +1,41 @@
+<h1><%= game.title %></h1>
+<table class="game-table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Publisher</th>
+            <th>Genre</th>
+            <th>Release Date</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <%= game.title %>
+            </td>
+            <td>
+                <%= game.publisher %>
+            </td>
+            <td>
+                <%= game.genre %>
+            </td>
+            <td>
+                <%= game.releaseDate %>
+            </td>
+            <td>
+                Rating placeholder
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <a href="/games">Back</a>
+</div>
+<div>
+    <a href="/games/<%= game.id %>/edit">Edit</a>
+</div>
+<div>
+    <a href="/games/<%= game.id %>?_method=DELETE" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+</div>
