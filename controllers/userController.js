@@ -100,6 +100,31 @@ module.exports = {
                 console.log(`ERROR deleting user by ID: ${err}`);
                 res.render('error', { error: err });
             });
+    },
+
+    login: (req, res) => {
+        res.render('users/login');
+    },
+
+    authenticate: (req, res, next) => {
+        User.findOne({
+            email: req.body.email
+        })
+            .then(user => {
+                if (user && user.password === req.body.password) {
+                    res.locals.redirect = `/users/${user._id}`;
+                    req.flash('success', `${user.username} successfully logged in!`);
+                    res.locals.user = user;
+                } else {
+                    req.flash('error', 'Failed to log in user account');
+                    res.locals.redirect = '/users/login';
+                }
+                next();
+            })
+            .catch(err => {
+                console.log(`ERROR authenticating user: ${err}`);
+                next(err);
+            });
     }
 
 };

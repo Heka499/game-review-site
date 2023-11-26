@@ -5,6 +5,9 @@ const mongoose = require('mongoose'),
     express = require('express'),
     layouts = require('express-ejs-layouts'),
     methodOverride = require('method-override'),
+    expressSession = require('express-session'),
+    cookieParser = require('cookie-parser'),
+    connectFlash = require('connect-flash'),
     port = 3000,
     app = express(),
     router = express.Router(),
@@ -13,6 +16,18 @@ const mongoose = require('mongoose'),
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+router.use(cookieParser('secret_passcode'));
+router.use(expressSession({
+    secret: 'secret_passcode',
+    cookie: {
+        maxAge: 4000000
+    },
+    resave: false,
+    saveUninitialized: false
+}));
+router.use(connectFlash());
+app.use(layouts);
 
 mongoose.connect(
     'mongodb://127.0.0.1:27017/game-review-db'
@@ -23,8 +38,15 @@ db.once('open', () => {
 });
 
 app.set('view engine', 'ejs');
-app.use(layouts);
 app.use("/", router);
+
+router.use((req, res, next) => {
+    res.locals.flashMessages = req.flash();
+    next();
+});
+
+router.get("/users/login", userController.login);
+router.post("/users/login", userController.authenticate, userController.redirectView);
 
 router.get("/users", userController.index, userController.indexView);
 router.get("/users/new", userController.newUser);

@@ -6,6 +6,28 @@
     <title>Game Review Site</title>
 </head>
 <body>
+    <header>
+        <h1>Game Review Site</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/games">Games</a></li>
+                <li><a href="/games/new">Add Game</a></li>
+                <li><a href="/users/new">Register</a></li>
+                <li><a href="/users/login">Login</a></li>
+                <li><a href="/users/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="flashes">
+        <% if (flashMessages) { %>
+            <% if (flashMessages.success) { %>
+                <div class="flash flash-success"><%= flashMessages.success %></div>
+            <% } else if (flashMessages.error) { %>
+                <div class="flash-error"><%= flashMessages.error %></div>
+            <% } %>
+        <% }; %>
+    </div>
     <%- body %>
 </body>
 </html>
