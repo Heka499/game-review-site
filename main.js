@@ -8,24 +8,31 @@ const mongoose = require('mongoose'),
     expressSession = require('express-session'),
     cookieParser = require('cookie-parser'),
     connectFlash = require('connect-flash'),
+    passport = require('passport'),
     port = 3000,
     app = express(),
     router = express.Router(),
+    User = require('./models/user'),
     bodyParser = require('body-parser');
 
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-router.use(cookieParser('secret_passcode'));
+router.use(cookieParser('gameReviewSite85'));
 router.use(expressSession({
-    secret: 'secret_passcode',
+    secret: 'gameReviewSite85',
     cookie: {
         maxAge: 4000000
     },
     resave: false,
     saveUninitialized: false
 }));
+router.use(passport.initialize());
+router.use(passport.session());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 router.use(connectFlash());
 app.use(layouts);
 
@@ -42,11 +49,14 @@ app.use("/", router);
 
 router.use((req, res, next) => {
     res.locals.flashMessages = req.flash();
+    res.locals.loggedIn = req.isAuthenticated();
+    res.locals.currentUser = req.user;
     next();
 });
 
 router.get("/users/login", userController.login);
-router.post("/users/login", userController.authenticate, userController.redirectView);
+router.post("/users/login", userController.authenticate);
+router.get("/users/logout", userController.logout, userController.redirectView);
 
 router.get("/users", userController.index, userController.indexView);
 router.get("/users/new", userController.newUser);

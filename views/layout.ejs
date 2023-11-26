@@ -14,8 +14,12 @@
                 <li><a href="/games">Games</a></li>
                 <li><a href="/games/new">Add Game</a></li>
                 <li><a href="/users/new">Register</a></li>
-                <li><a href="/users/login">Login</a></li>
-                <li><a href="/users/logout">Logout</a></li>
+                <% if (loggedIn) { %>
+                    Logged in as <a href="/users/<%= currentUser.id %>"><%= currentUser.username %></a>
+                    <a href="/users/logout">Logout</a>
+                <% } else { %>
+                    <li><a href="/users/login">Login</a></li>
+                <% }; %>
             </ul>
         </nav>
     </header>

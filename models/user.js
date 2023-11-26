@@ -1,3 +1,4 @@
+const passportLocalMongoose = require('passport-local-mongoose');
 const mongoose = require('mongoose'),
     userSchema = mongoose.Schema({
         username: { 
@@ -11,10 +12,6 @@ const mongoose = require('mongoose'),
             unique: true,
             lovercase: true
         },
-        password: {
-            type: String,
-            required: true
-        },
         reviews: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Review'
@@ -26,5 +23,9 @@ const mongoose = require('mongoose'),
 userSchema.methods.getInfo = function () {
     return `Username: ${this.username} Email: ${this.email}`;
 };
+
+userSchema.plugin(passportLocalMongoose, {
+    usernameField: 'email'
+});
 
 module.exports = mongoose.model('User', userSchema);
