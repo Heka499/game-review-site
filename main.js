@@ -1,5 +1,6 @@
 const userController = require('./controllers/userController'),
-    gameController = require('./controllers/gameController');
+    gameController = require('./controllers/gameController'),
+    reviewController = require('./controllers/reviewController');
 
 const mongoose = require('mongoose'),
     express = require('express'),
@@ -77,6 +78,8 @@ router.get("/games/:id/edit", gameController.edit);
 router.put("/games/:id/update", gameController.update, gameController.redirectView);
 router.delete("/games/:id/delete", gameController.delete, gameController.redirectView);
 
+router.get("/games/:id/newReview", reviewController.newReview);
+router.post("/games/:id/createReview", reviewController.create, gameController.redirectView);
 
 app.listen(port, () => {
     console.log(`Listening to port ${port}`);

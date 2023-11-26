@@ -21,14 +21,38 @@
                 <%= game.genre %>
             </td>
             <td>
-                <%= game.releaseDate %>
+                <%= game.releaseDate.toLocaleDateString('fi-FI', { day: 'numeric', month: 'numeric', year: 'numeric' }) %>
             </td>
             <td>
-                Rating placeholder
+                <% if (game.reviews.length > 0) { %>
+                    <%= averageRating.toFixed(2) %>
+                <% } else { %>
+                    No reviews yet.
+                <% } %>
             </td>
         </tr>
     </tbody>
 </table>
+
+<div>
+    <a href="/games/<%= game.id %>/newReview">Write a review</a>
+</div>
+
+<h3>Reviews</h3>
+<% if (game.reviews.length > 0) { %>
+    <ul>
+        <% game.reviews.forEach(review => { %>
+            <li>
+                <h4><%= review.title %></h4>
+                <p>Rating: <%= review.rating %></p>
+                <p><%= review.review %></p>
+            </li>
+        <% }); %>
+    </ul>
+<% } else { %>
+    <p>No reviews yet.</p>
+<% } %>
+
 
 <div>
     <a href="/games">Back</a>

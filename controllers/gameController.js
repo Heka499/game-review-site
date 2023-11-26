@@ -39,8 +39,19 @@ module.exports = {
     show: (req, res ,next) => {
         let gameId = req.params.id;
         Game.findById(gameId)
+            .populate('reviews')
             .then(game => {
+                let averageRating = 0;
+                if (game.reviews.length > 0) {
+                    let sum = 0;
+                    game.reviews.forEach(review => {
+                        sum += review.rating;
+                    });
+                    averageRating = sum / game.reviews.length;
+                }
+
                 res.locals.game = game;
+                res.locals.averageRating = averageRating;
                 res.render('games/show');
             })
             .catch(err => {
