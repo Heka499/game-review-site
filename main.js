@@ -20,6 +20,8 @@ const mongoose = require('mongoose'),
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(express.static(__dirname + '/public'));
+app.use(layouts);
 
 router.use(cookieParser('gameReviewSite85'));
 router.use(expressSession({
@@ -36,7 +38,6 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 router.use(connectFlash());
-app.use(layouts);
 
 mongoose.connect(
     'mongodb://127.0.0.1:27017/game-review-db'
@@ -48,6 +49,7 @@ db.once('open', () => {
 
 app.set('view engine', 'ejs');
 app.use("/", router);
+
 
 router.use((req, res, next) => {
     res.locals.flashMessages = req.flash();

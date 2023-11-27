@@ -1,0 +1,175 @@
+body {
+    background-color: #ffffff;
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    color: #0099cc;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: rgb(175, 34, 34);
+}
+
+h1 {
+    color: #000000;
+    font-size: 40px;
+    text-align: center;
+}
+
+.games-table {
+    text-align: left;
+    padding: 15px;
+}
+
+.games-table th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+}
+
+.new-game-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-game-form h2 {
+    text-align: center;
+}
+
+.new-game-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.new-game-form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.new-game-form button {
+    background-color: rgb(0, 240, 8);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+
+}
+
+.new-game-form button:hover {
+    background-color: #45a049;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.reviews h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.reviews ul {
+    list-style: none;
+    padding: 0;
+}
+
+.reviews li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.reviews h4 {
+    margin-bottom: 5px;
+}
+
+.reviews p {
+    margin: 0;
+}
+
+/* Style for the case when there are no reviews */
+.reviews p.no-reviews {
+    font-style: italic;
+    color: #888;
+}
+
+.signup-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form h2 {
+    text-align: center;
+    color: #333;
+}
+
+.signup-form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+.signup-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signup-form button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.signup-form button:hover {
+    background-color: #45a049;
+}
