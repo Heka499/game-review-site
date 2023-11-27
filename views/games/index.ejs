@@ -21,7 +21,7 @@
                     </td>
                     <td><%= game.publisher %></td>
                     <td><%= game.genre %></td>
-                    <td><%= game.releaseDate %></td>
+                    <td><%= game.releaseDate.toLocaleDateString('fi-FI', { day: 'numeric', month: 'numeric', year: 'numeric' }) %></td>
                     <td>Rating placeholder</td>
                     <td>
                         <a href="/games/<%= game.id %>/edit">Edit</a>
