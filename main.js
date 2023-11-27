@@ -1,3 +1,4 @@
+const homeController = require('./controllers/homeController');
 const userController = require('./controllers/userController'),
     gameController = require('./controllers/gameController'),
     reviewController = require('./controllers/reviewController');
@@ -54,6 +55,8 @@ router.use((req, res, next) => {
     res.locals.currentUser = req.user;
     next();
 });
+
+router.get("/", homeController.index);
 
 router.get("/users/login", userController.login);
 router.post("/users/login", userController.authenticate);
