@@ -5,7 +5,11 @@ module.exports = {
         Game.find({})
             .then(games => {
                 res.locals.games = games;
-                res.render('games/index');
+                if (req.query.format === "json")  {
+                    res.json(res.locals.games);
+                } else {
+                    res.render('games/index');
+                }
             })
             .catch(err => {
                 console.log(`ERROR fetching games: ${err}`);
