@@ -1,5 +1,4 @@
 <h2>New Review for <%= game.title %></h2>
-<p>Debug: <%= JSON.stringify(game) %></p>
 <div class="review-form"></div>
     <form action="/games/<%= game._id %>/createReview" method="POST">
         <h2>Add New Review</h2>
