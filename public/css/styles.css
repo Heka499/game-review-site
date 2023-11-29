@@ -296,3 +296,52 @@ h1 {
 a:hover {
     background-color: #111;
 }
+
+/* Add some styling to the form container */
+.review-form {
+    max-width: 400px;
+    margin: auto;
+}
+
+/* Style form elements */
+.review-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-form h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.review-form label {
+    margin-bottom: 8px;
+}
+
+.review-form input,
+.review-form button {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.review-form input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.review-form button {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+.review-form button:hover {
+    background-color: #45a049;
+}
+
+.review-form #review {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
