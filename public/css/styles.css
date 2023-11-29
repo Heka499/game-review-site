@@ -174,12 +174,13 @@ h1 {
     background-color: #45a049;
 }
 
-div#chat {
+#chat {
     margin-top: 20px;
-    height: 200px;
+    max-height: 300px;
     width: 100%;
     border: 2px solid #000000;
     border-radius: 5px;
+    overflow-y: auto;
 }
 
 .container {
