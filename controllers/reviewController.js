@@ -12,6 +12,7 @@ module.exports = {
             review,
             rating,
             user: req.user._id, // Assuming you have user authentication
+            username: req.user.username,
             game: gameId,
         });
 
