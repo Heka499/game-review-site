@@ -8,7 +8,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-    color: #0099cc;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    margin: 2px;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #333;
+    border-radius: 5px;
 }
 
 nav ul {
@@ -118,7 +125,7 @@ h1 {
 }
 
 .reviews h4 {
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .reviews p {
@@ -174,12 +181,35 @@ h1 {
     background-color: #45a049;
 }
 
-div#chat {
+#chat {
     margin-top: 20px;
-    height: 200px;
-    width: 100%;
+    max-height: 300px;
+    width: 55%;
     border: 2px solid #000000;
     border-radius: 5px;
+    overflow-y: auto;
+}
+
+#chat-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#chat-button:hover {
+    background-color: #45a049;
+}
+
+#chat-input {
+    width: 50%;
+    padding: 8px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .container {
@@ -191,6 +221,127 @@ div#chat {
 }
 
 .current-user {
-    background-color: #4CAF50;
+    background-color: #127a15;
     color: white;
+}
+
+#modal-button {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #333;
+    border: none;
+}
+
+#modal-button:hover {
+    background-color: #111;
+}
+
+.home-page {
+    text-align: center;
+}
+
+/* Add these styles to your existing CSS file or create a new one */
+
+/* Styling for the modal overlay */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+/* Styling for the modal content */
+.modal-dialog {
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: 30px auto;
+}
+
+/* Styling for the modal body */
+.modal-body {
+    padding: 20px;
+    background-color: #fff; /* White background */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Drop shadow effect */
+}
+
+/* Styling for the modal footer */
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    background-color: #f4f4f4; /* Light gray background */
+    border-top: 1px solid #ddd; /* Light gray border on top */
+}
+
+/* Styling for the Close button */
+.modal-footer button {
+    background-color: #337ab7; /* Bootstrap primary color */
+    color: #fff; /* White text */
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hover effect for the Close button */
+.modal-footer button:hover {
+    background-color: #286090; /* Darker shade on hover */
+}
+
+a:hover {
+    background-color: #111;
+}
+
+/* Add some styling to the form container */
+.review-form {
+    max-width: 400px;
+    margin: auto;
+}
+
+/* Style form elements */
+.review-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-form h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.review-form label {
+    margin-bottom: 8px;
+}
+
+.review-form input,
+.review-form button {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.review-form input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.review-form button {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+.review-form button:hover {
+    background-color: #45a049;
+}
+
+.review-form #review {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
 }

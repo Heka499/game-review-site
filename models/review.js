@@ -2,8 +2,7 @@ const mongoose = require('mongoose'),
     reviewSchema = mongoose.Schema({
         title: {
             type: String,
-            required: true,
-            unique: true
+            required: true
         },
         review: {
             type: String,
@@ -18,6 +17,10 @@ const mongoose = require('mongoose'),
         user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
+        },
+        username: {
+            type: String,
+            required: true
         },
         game: {
             type: mongoose.Schema.Types.ObjectId,

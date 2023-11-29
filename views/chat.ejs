@@ -2,10 +2,10 @@
     <% if (currentUser) { %>
         <h1>Chat</h1>
         <form id="chatForm">
-            <input id="chat-input" type="text">
+            <input id="chat-input" type="text" placeholder="Enter a message">
                 <input id="chat-user-name" type="hidden" value="<%= currentUser.username %>">
             <input id="chat-user-id" type="hidden" value="<%= currentUser.id %>">
-            <input type="submit" value="Send">
+            <input id="chat-button" type="submit" value="Send">
         </form>
         <div id="chat"></div>
     <% } else { %>

@@ -87,6 +87,10 @@ router.delete("/games/:id/delete", gameController.delete, gameController.redirec
 router.get("/games/:id/newReview", reviewController.newReview);
 router.post("/games/:id/createReview", reviewController.create, gameController.redirectView);
 
+router.get("/games/:gameId/reviews/:reviewId/editReview", reviewController.edit);
+router.put("/games/:gameId/reviews/:reviewId/update", reviewController.update);
+router.delete("/games/:gameId/reviews/:reviewId/delete", reviewController.delete);
+
 const server = app.listen(port, () => {
     console.log(`Listening to port ${port}`);
 }),
