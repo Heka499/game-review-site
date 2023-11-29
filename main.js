@@ -59,6 +59,7 @@ router.use((req, res, next) => {
 });
 
 router.get("/", homeController.index);
+router.get("/chat", homeController.chat);
 
 router.get("/users/login", userController.login);
 router.post("/users/login", userController.authenticate);
@@ -86,6 +87,8 @@ router.delete("/games/:id/delete", gameController.delete, gameController.redirec
 router.get("/games/:id/newReview", reviewController.newReview);
 router.post("/games/:id/createReview", reviewController.create, gameController.redirectView);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Listening to port ${port}`);
-});
+}),
+io = require('socket.io')(server);
+require('./controllers/chatController')(io);
