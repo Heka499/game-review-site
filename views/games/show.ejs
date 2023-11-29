@@ -35,7 +35,11 @@
 </table>
 
 <div>
-    <a href="/games/<%= game.id %>/newReview">Write a review</a>
+    <% if (loggedIn) { %>
+        <a href="/games/<%= game.id %>/newReview">Write a review</a>
+    <% } else { %>
+        <a href="/users/login">Login to write a review</a>
+    <% } %>
 </div>
 
 <div class="reviews">
