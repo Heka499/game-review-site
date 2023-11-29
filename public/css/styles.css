@@ -189,3 +189,8 @@ div#chat {
     padding: 10px;
     margin: 10px 0;
 }
+
+.current-user {
+    background-color: #4CAF50;
+    color: white;
+}
